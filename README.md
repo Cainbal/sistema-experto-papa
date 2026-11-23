@@ -4,6 +4,9 @@ Diagnostica 16 plagas y enfermedades de la papa a partir de lo que el agricultor
 es actuar, explica su razonamiento y recomienda el manejo. Además avisa con días de anticipación
 cuándo el clima favorece a la rancha.
 
+**Pruébalo en línea:** https://sistema-experto-papa.onrender.com (la primera visita puede tardar
+un minuto: el servidor gratuito se duerme cuando nadie lo usa).
+
 Proyecto del curso Sistemas Inteligentes, Ingeniería de Sistemas, UNHEVAL (2026), con el
 Mg. Marx Danly León Trujillo. Integrantes: Esther Jhadira León Flores, Cristina Reyes Lino y
 Jack Roller Torres Caldas.
