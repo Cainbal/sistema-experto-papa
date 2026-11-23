@@ -1,0 +1,682 @@
+{
+ "fecha": "2026-11-22",
+ "casos_guia": {
+  "resumen": {
+   "aciertos": 17,
+   "total": 17,
+   "margen_promedio": 60.6,
+   "margen_minimo": 18.3
+  },
+  "filas": [
+   {
+    "caso": "Rancha en follaje con clima húmedo",
+    "ficha": 1,
+    "esperado": "Tizón tardío",
+    "obtenido": "Tizón tardío",
+    "posibilidad": 81.6,
+    "margen": 40.0,
+    "ok": true
+   },
+   {
+    "caso": "Rancha en tubérculo",
+    "ficha": 1,
+    "esperado": "Tizón tardío",
+    "obtenido": "Tizón tardío",
+    "posibilidad": 64.54,
+    "margen": 64.5,
+    "ok": true
+   },
+   {
+    "caso": "Alternariosis en hojas",
+    "ficha": 2,
+    "esperado": "Alternariosis",
+    "obtenido": "Alternariosis",
+    "posibilidad": 81.76,
+    "margen": 41.4,
+    "ok": true
+   },
+   {
+    "caso": "Rizoctoniasis",
+    "ficha": 3,
+    "esperado": "Rizoctoniasis",
+    "obtenido": "Rizoctoniasis",
+    "posibilidad": 81.2,
+    "margen": 81.2,
+    "ok": true
+   },
+   {
+    "caso": "Verruga",
+    "ficha": 4,
+    "esperado": "Verruga",
+    "obtenido": "Verruga",
+    "posibilidad": 70.49,
+    "margen": 70.5,
+    "ok": true
+   },
+   {
+    "caso": "Roña",
+    "ficha": 5,
+    "esperado": "Roña",
+    "obtenido": "Roña",
+    "posibilidad": 74.81,
+    "margen": 74.8,
+    "ok": true
+   },
+   {
+    "caso": "Pudrición seca en almacén",
+    "ficha": 6,
+    "esperado": "Pudrición seca",
+    "obtenido": "Pudrición seca",
+    "posibilidad": 74.57,
+    "margen": 74.6,
+    "ok": true
+   },
+   {
+    "caso": "Carbón",
+    "ficha": 7,
+    "esperado": "Carbón de la papa",
+    "obtenido": "Carbón de la papa",
+    "posibilidad": 79.13,
+    "margen": 79.1,
+    "ok": true
+   },
+   {
+    "caso": "Marchitez bacteriana",
+    "ficha": 8,
+    "esperado": "Marchitez bacteriana",
+    "obtenido": "Marchitez bacteriana",
+    "posibilidad": 68.86,
+    "margen": 68.9,
+    "ok": true
+   },
+   {
+    "caso": "Pierna negra",
+    "ficha": 9,
+    "esperado": "Pierna negra",
+    "obtenido": "Pierna negra",
+    "posibilidad": 74.14,
+    "margen": 18.3,
+    "ok": true
+   },
+   {
+    "caso": "Pudrición blanda",
+    "ficha": 9,
+    "esperado": "Pudrición blanda",
+    "obtenido": "Pudrición blanda",
+    "posibilidad": 76.28,
+    "margen": 76.3,
+    "ok": true
+   },
+   {
+    "caso": "Virosis",
+    "ficha": 10,
+    "esperado": "Virosis",
+    "obtenido": "Virosis",
+    "posibilidad": 72.98,
+    "margen": 28.4,
+    "ok": true
+   },
+   {
+    "caso": "Nematodo del quiste",
+    "ficha": 11,
+    "esperado": "Nematodo del quiste",
+    "obtenido": "Nematodo del quiste",
+    "posibilidad": 75.44,
+    "margen": 18.8,
+    "ok": true
+   },
+   {
+    "caso": "Gorgojo de los Andes",
+    "ficha": 12,
+    "esperado": "Gorgojo de los Andes",
+    "obtenido": "Gorgojo de los Andes",
+    "posibilidad": 76.96,
+    "margen": 77.0,
+    "ok": true
+   },
+   {
+    "caso": "Polilla de la papa",
+    "ficha": 13,
+    "esperado": "Polilla de la papa",
+    "obtenido": "Polilla de la papa",
+    "posibilidad": 83.61,
+    "margen": 83.6,
+    "ok": true
+   },
+   {
+    "caso": "Trips",
+    "ficha": 14,
+    "esperado": "Trips",
+    "obtenido": "Trips",
+    "posibilidad": 65.8,
+    "margen": 65.8,
+    "ok": true
+   },
+   {
+    "caso": "Pulguilla",
+    "ficha": 15,
+    "esperado": "Pulguilla",
+    "obtenido": "Pulguilla",
+    "posibilidad": 67.34,
+    "margen": 67.3,
+    "ok": true
+   }
+  ]
+ },
+ "consulta_guiada": {
+  "resumen": {
+   "aciertos": 17,
+   "total": 17,
+   "preguntas_promedio": 6.4,
+   "preguntas_maximo": 12
+  },
+  "filas": [
+   {
+    "caso": "Rancha en follaje con clima húmedo",
+    "preguntas": 2,
+    "obtenido": "Tizón tardío",
+    "posibilidad": 76.16,
+    "ok": true
+   },
+   {
+    "caso": "Rancha en tubérculo",
+    "preguntas": 11,
+    "obtenido": "Tizón tardío",
+    "posibilidad": 64.54,
+    "ok": true
+   },
+   {
+    "caso": "Alternariosis en hojas",
+    "preguntas": 2,
+    "obtenido": "Alternariosis",
+    "posibilidad": 75.45,
+    "ok": true
+   },
+   {
+    "caso": "Rizoctoniasis",
+    "preguntas": 4,
+    "obtenido": "Rizoctoniasis",
+    "posibilidad": 80.53,
+    "ok": true
+   },
+   {
+    "caso": "Verruga",
+    "preguntas": 1,
+    "obtenido": "Verruga",
+    "posibilidad": 70.49,
+    "ok": true
+   },
+   {
+    "caso": "Roña",
+    "preguntas": 5,
+    "obtenido": "Roña",
+    "posibilidad": 74.81,
+    "ok": true
+   },
+   {
+    "caso": "Pudrición seca en almacén",
+    "preguntas": 5,
+    "obtenido": "Pudrición seca",
+    "posibilidad": 74.57,
+    "ok": true
+   },
+   {
+    "caso": "Carbón",
+    "preguntas": 2,
+    "obtenido": "Carbón de la papa",
+    "posibilidad": 78.17,
+    "ok": true
+   },
+   {
+    "caso": "Marchitez bacteriana",
+    "preguntas": 6,
+    "obtenido": "Marchitez bacteriana",
+    "posibilidad": 68.86,
+    "ok": true
+   },
+   {
+    "caso": "Pierna negra",
+    "preguntas": 12,
+    "obtenido": "Pierna negra",
+    "posibilidad": 74.14,
+    "ok": true
+   },
+   {
+    "caso": "Pudrición blanda",
+    "preguntas": 9,
+    "obtenido": "Pudrición blanda",
+    "posibilidad": 76.28,
+    "ok": true
+   },
+   {
+    "caso": "Virosis",
+    "preguntas": 10,
+    "obtenido": "Virosis",
+    "posibilidad": 72.98,
+    "ok": true
+   },
+   {
+    "caso": "Nematodo del quiste",
+    "preguntas": 10,
+    "obtenido": "Nematodo del quiste",
+    "posibilidad": 75.44,
+    "ok": true
+   },
+   {
+    "caso": "Gorgojo de los Andes",
+    "preguntas": 8,
+    "obtenido": "Gorgojo de los Andes",
+    "posibilidad": 76.96,
+    "ok": true
+   },
+   {
+    "caso": "Polilla de la papa",
+    "preguntas": 7,
+    "obtenido": "Polilla de la papa",
+    "posibilidad": 77.78,
+    "ok": true
+   },
+   {
+    "caso": "Trips",
+    "preguntas": 9,
+    "obtenido": "Trips",
+    "posibilidad": 65.8,
+    "ok": true
+   },
+   {
+    "caso": "Pulguilla",
+    "preguntas": 6,
+    "obtenido": "Pulguilla",
+    "posibilidad": 67.34,
+    "ok": true
+   }
+  ]
+ },
+ "robustez": {
+  "simulaciones": 680,
+  "acierto_primero": 0.899,
+  "acierto_entre_3": 0.922,
+  "acierto_ponderado_por_frecuencia_en_la_zona": 0.906,
+  "preguntas_promedio": 8.5,
+  "modelo_de_usuario": "Si ve el síntoma responde sí (60 %), un poco (25 %) o no sé (15 %); si no lo ve, no (85 %), no sé (10 %) o un poco (5 %, error)."
+ },
+ "calibracion": {
+  "calibrada": {
+   "aciertos": 17,
+   "total": 17,
+   "margen_promedio": 60.6,
+   "margen_minimo": 18.3,
+   "guiada": {
+    "aciertos": 17,
+    "total": 17,
+    "preguntas_promedio": 6.4,
+    "preguntas_maximo": 12
+   }
+  },
+  "pesos_de_la_guia": {
+   "aciertos": 17,
+   "total": 17,
+   "margen_promedio": 60.4,
+   "margen_minimo": 1.4,
+   "guiada": {
+    "aciertos": 16,
+    "total": 17,
+    "preguntas_promedio": 5.5,
+    "preguntas_maximo": 11
+   }
+  },
+  "robustez_pesos_de_la_guia": {
+   "simulaciones": 680,
+   "acierto_primero": 0.884,
+   "acierto_entre_3": 0.921,
+   "acierto_ponderado_por_frecuencia_en_la_zona": 0.879,
+   "preguntas_promedio": 8.1,
+   "modelo_de_usuario": "Si ve el síntoma responde sí (60 %), un poco (25 %) o no sé (15 %); si no lo ve, no (85 %), no sé (10 %) o un poco (5 %, error)."
+  }
+ },
+ "sensibilidad_alfa": [
+  {
+   "alfa": 0.0,
+   "casos_aciertos": 17,
+   "margen_minimo": 20.4,
+   "guiada_aciertos": 17,
+   "guiada_preguntas": 5.9,
+   "robustez_primero": 0.901,
+   "robustez_zona": 0.885
+  },
+  {
+   "alfa": 0.25,
+   "casos_aciertos": 17,
+   "margen_minimo": 19.4,
+   "guiada_aciertos": 17,
+   "guiada_preguntas": 6.1,
+   "robustez_primero": 0.916,
+   "robustez_zona": 0.92
+  },
+  {
+   "alfa": 0.5,
+   "casos_aciertos": 17,
+   "margen_minimo": 18.3,
+   "guiada_aciertos": 17,
+   "guiada_preguntas": 6.4,
+   "robustez_primero": 0.899,
+   "robustez_zona": 0.906
+  },
+  {
+   "alfa": 0.75,
+   "casos_aciertos": 17,
+   "margen_minimo": 15.9,
+   "guiada_aciertos": 17,
+   "guiada_preguntas": 6.8,
+   "robustez_primero": 0.884,
+   "robustez_zona": 0.888
+  },
+  {
+   "alfa": 1.0,
+   "casos_aciertos": 17,
+   "margen_minimo": 12.8,
+   "guiada_aciertos": 17,
+   "guiada_preguntas": 6.9,
+   "robustez_primero": 0.853,
+   "robustez_zona": 0.861
+  }
+ ],
+ "experto": [
+  {
+   "id": "crispin_1",
+   "relato": "Planta pequeña y los tubérculos con manchas y verrugas; clima cálido y suelo arcilloso.",
+   "experto_dijo": "Verruga",
+   "sistema": [
+    {
+     "plaga": "Verruga",
+     "posibilidad": 70.49
+    },
+    {
+     "plaga": "Virosis",
+     "posibilidad": 41.62
+    },
+    {
+     "plaga": "Nematodo del quiste",
+     "posibilidad": 37.55
+    }
+   ],
+   "coincide": true,
+   "discrepancia": false,
+   "nota": "Coincide con la guía."
+  },
+  {
+   "id": "crispin_2",
+   "relato": "Amarillamiento de las hojas; la papa tenía manchas negras y era pequeña; abril, algo de lluvia, suelo arenoso.",
+   "experto_dijo": "Rizoctoniasis",
+   "sistema": [
+    {
+     "plaga": "Rizoctoniasis",
+     "posibilidad": 58.43
+    },
+    {
+     "plaga": "Virosis",
+     "posibilidad": 51.17
+    },
+    {
+     "plaga": "Nematodo del quiste",
+     "posibilidad": 44.9
+    }
+   ],
+   "coincide": true,
+   "discrepancia": false,
+   "nota": "Las manchas negras pequeñas en la papa corresponden a las costras (esclerocios) de la rizoctoniasis."
+  },
+  {
+   "id": "crispin_3",
+   "relato": "Hojas marchitas y negras; las papas salían picadas y podridas; lluvia constante, suelo arcilloso.",
+   "experto_dijo": "Verruga",
+   "sistema": [
+    {
+     "plaga": "Pudrición blanda",
+     "posibilidad": 50.1
+    },
+    {
+     "plaga": "Polilla de la papa",
+     "posibilidad": 45.04
+    },
+    {
+     "plaga": "Marchitez bacteriana",
+     "posibilidad": 43.21
+    }
+   ],
+   "coincide": false,
+   "discrepancia": true,
+   "nota": "El experto lo llamó verruga, pero los síntomas descritos no son los de la verruga en la guía del CIP. Se reporta como discrepancia, no como error del sistema."
+  }
+ ],
+ "wallin": [
+  {
+   "horas": 18,
+   "temperatura_f": 65,
+   "temperatura_c": 18.3,
+   "publicado": 3,
+   "modelo": 3.0
+  },
+  {
+   "horas": 18,
+   "temperatura_f": 56,
+   "temperatura_c": 13.3,
+   "publicado": 2,
+   "modelo": 2.0
+  },
+  {
+   "horas": 18,
+   "temperatura_f": 50,
+   "temperatura_c": 10.0,
+   "publicado": 1,
+   "modelo": 1.0
+  },
+  {
+   "horas": 18,
+   "temperatura_f": 40,
+   "temperatura_c": 4.4,
+   "publicado": 0,
+   "modelo": 0.0
+  },
+  {
+   "horas": 18,
+   "temperatura_f": 85,
+   "temperatura_c": 29.4,
+   "publicado": 0,
+   "modelo": 0.0
+  }
+ ],
+ "camara": {
+  "C_elegido": 0.3,
+  "busqueda_C": {
+   "0.05": 0.5585858585858585,
+   "0.1": 0.5541414141414142,
+   "0.3": 0.5586868686868687,
+   "1.0": 0.553939393939394
+  },
+  "umbral_confianza": 0.6,
+  "laboratorio_plantvillage": {
+   "n": 2152,
+   "exactitud": 0.9768,
+   "recall_por_clase": {
+    "rancha": 0.98,
+    "alternaria": 0.984,
+    "sana": 0.9079
+   },
+   "matriz_confusion": {
+    "filas_reales": [
+     "rancha",
+     "alternaria",
+     "sana"
+    ],
+    "columnas_predichas": [
+     "rancha",
+     "alternaria",
+     "sana"
+    ],
+    "valores": [
+     [
+      980,
+      6,
+      14
+     ],
+     [
+      14,
+      984,
+      2
+     ],
+     [
+      14,
+      0,
+      138
+     ]
+    ]
+   },
+   "con_abstencion": {
+    "umbral": 0.6,
+    "cobertura": 0.9898,
+    "exactitud_aceptadas": 0.9812
+   }
+  },
+  "campo_plantdoc_sin_fotos_de_campo_en_entrenamiento": {
+   "n": 222,
+   "exactitud": 0.5586,
+   "recall_por_clase": {
+    "rancha": 0.6571,
+    "alternaria": 0.4701
+   },
+   "matriz_confusion": {
+    "filas_reales": [
+     "rancha",
+     "alternaria",
+     "sana"
+    ],
+    "columnas_predichas": [
+     "rancha",
+     "alternaria",
+     "sana"
+    ],
+    "valores": [
+     [
+      69,
+      29,
+      7
+     ],
+     [
+      53,
+      55,
+      9
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "con_abstencion": {
+    "umbral": 0.6,
+    "cobertura": 0.9279,
+    "exactitud_aceptadas": 0.5534
+   }
+  },
+  "campo_plantdoc_con_fotos_de_campo": {
+   "n": 222,
+   "exactitud": 0.5631,
+   "recall_por_clase": {
+    "rancha": 0.5619,
+    "alternaria": 0.5641
+   },
+   "matriz_confusion": {
+    "filas_reales": [
+     "rancha",
+     "alternaria",
+     "sana"
+    ],
+    "columnas_predichas": [
+     "rancha",
+     "alternaria",
+     "sana"
+    ],
+    "valores": [
+     [
+      59,
+      46,
+      0
+     ],
+     [
+      51,
+      66,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "con_abstencion": {
+    "umbral": 0.6,
+    "cobertura": 0.9685,
+    "exactitud_aceptadas": 0.5721
+   }
+  },
+  "campo_curva_abstencion": [
+   {
+    "umbral": 0.4,
+    "cobertura": 1.0,
+    "exactitud": 0.563
+   },
+   {
+    "umbral": 0.5,
+    "cobertura": 1.0,
+    "exactitud": 0.563
+   },
+   {
+    "umbral": 0.6,
+    "cobertura": 0.968,
+    "exactitud": 0.572
+   },
+   {
+    "umbral": 0.7,
+    "cobertura": 0.896,
+    "exactitud": 0.573
+   },
+   {
+    "umbral": 0.8,
+    "cobertura": 0.847,
+    "exactitud": 0.58
+   },
+   {
+    "umbral": 0.9,
+    "cobertura": 0.779,
+    "exactitud": 0.584
+   }
+  ],
+  "detector_de_hoja": {
+   "umbral_similitud": 0.5338,
+   "fotos_de_papa_aceptadas": 0.98,
+   "otras_plantas_rechazadas": 0.569,
+   "otras_plantas_n": 429,
+   "tomate_con_rancha_rechazadas": 0.238,
+   "tomate_con_rancha_clasificadas_como_rancha": 0.624,
+   "tomate_n": 101
+  },
+  "fotos": {
+   "plantvillage": 2152,
+   "plantdoc": 222,
+   "por_clase": {
+    "rancha": 1105,
+    "alternaria": 1117,
+    "sana": 152
+   },
+   "hojas_distintas_plantvillage": 536
+  }
+ },
+ "pruebas": {
+  "ejecutadas": 53,
+  "fallidas": 0,
+  "omitidas": 0
+ }
+}

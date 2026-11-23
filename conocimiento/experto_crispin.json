@@ -1,0 +1,110 @@
+{
+  "experto": {
+    "nombre": "Crispín Reyes Jesús",
+    "perfil": "Agricultor con unos 30 años de experiencia en el cultivo de papa (Huánuco)",
+    "fecha": "2026-11",
+    "instrumento": "Cuestionario impreso aplicado por una entrevistadora (secciones 2, 3, 4 y 7; faltan la 5, parte de la 6, la 8 y la 9)",
+    "consentimiento_nombre": "verbal"
+  },
+  "frecuencia_zona": {
+    "tizon_tardio": "a veces",
+    "alternariosis": "a veces",
+    "rizoctoniasis": "a veces",
+    "verruga": "a veces",
+    "rona": "rara vez",
+    "pudricion_seca": "rara vez",
+    "carbon": "a veces",
+    "marchitez_bacteriana": "nunca",
+    "pierna_negra": "a veces",
+    "pudricion_blanda": "a veces",
+    "virosis": "a veces",
+    "nematodo_quiste": "rara vez",
+    "gorgojo_andes": "rara vez",
+    "polilla": "siempre",
+    "trips": "rara vez",
+    "pulguilla": "a veces"
+  },
+  "nombres_locales": {
+    "tizon_tardio": ["rancha"],
+    "alternariosis": ["rancha", "mancha negra (probable)"],
+    "rizoctoniasis": ["platanero"],
+    "verruga": ["verruga"],
+    "rona": ["llaga"],
+    "pudricion_seca": ["seca seca"],
+    "carbon": ["cenicero (lectura dudosa)"],
+    "marchitez_bacteriana": [],
+    "pierna_negra": ["chupadera"],
+    "pudricion_blanda": ["chupadera"],
+    "virosis": ["amarillamiento"],
+    "nematodo_quiste": ["chupadera"],
+    "gorgojo_andes": ["gusanos", "gusano blanco"],
+    "polilla": ["mariposa"],
+    "trips": ["piojos"],
+    "pulguilla": ["pulgas"]
+  },
+  "tipicidad": {
+    "_nota": "Puntaje 0-10 que dio el experto a '¿qué tan seguro está si ve solo esto?'. Por el patrón de respuestas se interpreta como qué tan típico es el síntoma en la plaga, es decir P(síntoma | plaga). Las claves con '+' son síntomas combinados en una sola pregunta.",
+    "tizon_tardio": {"h_pelusilla_enves": 5, "h_manchas_necroticas": 5, "t_manchas_alargadas_quebradizo": 4, "tu_manchas_marron_rojizo_humedas": 1, "tu_corte_estrias_necroticas": 3},
+    "alternariosis": {"h_manchas_necroticas+h_anillos_concentricos": 6, "h_manchas_necroticas": 6, "h_manchas_limitadas_nervaduras": 3, "t_manchas_necroticas": 4, "tu_manchas_marron_oscuro_hundidas": 4},
+    "rizoctoniasis": {"b_lesiones_estrangulan": 4, "r_necrosis": 6, "t_cancros": 4, "e_cancros": 4, "t_tuberculos_aereos": 6, "tu_costras": 5},
+    "verruga": {"x_tumores": 6, "h_tumores_hojas_flores": 6},
+    "rona": {"tu_pustulas_polvillo": 6, "r_agallas_oscuras": 5},
+    "pudricion_seca": {"tu_pudricion_seca": 8, "tu_pudricion_seca+tu_arrugado_momificado": 6},
+    "carbon": {"tu_agallas": 4, "tu_agallas+tu_agallas_interior_negruzco": 4},
+    "marchitez_bacteriana": {},
+    "pierna_negra": {"t_base_pudricion_negra": 6, "h_amarillamiento": 8, "p_detiene_crecimiento": 5},
+    "pudricion_blanda": {"tu_pudricion_blanda_crema": 5, "tu_olor_desagradable": 7},
+    "virosis": {"h_mosaico": 7, "h_moteado": 6, "h_necrosis_nervaduras": 6, "p_enanismo": 5, "h_amarillamiento": 9, "h_deformacion": 8, "p_rigidez": 7, "tu_tamano_reducido": 7, "tu_deformes": 7, "tu_rajaduras": 7},
+    "nematodo_quiste": {"r_quistes": 4, "p_enanismo": 6, "h_amarillamiento": 7, "tu_tamano_reducido": 6, "tu_deformes": 6, "tu_rajaduras": 6},
+    "gorgojo_andes": {"h_media_luna": 5, "tu_galerias_profundas": 5, "tu_agujeros_circulares": 6},
+    "polilla": {"h_minado": 7, "t_barrenado_caida_hojas": 8, "tu_galerias_irregulares": 6},
+    "trips": {"h_manchas_plateadas": 5, "h_insectos_enves": 6, "p_secado_muerte": 6},
+    "pulguilla": {"h_perforaciones": 7}
+  },
+  "combinaciones": [
+    {"plaga": "virosis", "si": ["h_amarillamiento", "p_detiene_crecimiento"], "puntaje": 9, "texto": "amarillamiento de las hojas y la planta ya no crece"},
+    {"plaga": "nematodo_quiste", "si": ["r_quistes"], "puntaje": 8, "texto": "el tallo y la raíz se llenan de huevos de gusanos o larvas"},
+    {"plaga": "gorgojo_andes", "si": ["tu_larvas_blancas"], "puntaje": 9, "texto": "las papas se llenan de gusanos blancos"},
+    {"plaga": "polilla", "si": ["h_huevos_axilas"], "puntaje": 7, "texto": "huevos de mariposas en el vértice de las hojas con el tallo"},
+    {"plaga": "carbon", "si": ["tu_agallas"], "puntaje": 6, "texto": "abultamientos con manchas en la papa"}
+  ],
+  "combinaciones_no_usadas": [
+    {"plaga": "tizon_tardio", "texto": "hojas con manchas oscuras y la planta frágil", "motivo": "El experto dio la misma combinación para rancha y alternariosis, así que no ayuda a distinguirlas."},
+    {"plaga": "alternariosis", "texto": "hojas con manchas oscuras y la planta frágil", "motivo": "Igual que la rancha: no distingue."},
+    {"plaga": "rizoctoniasis", "texto": "amarillamiento de las hojas (8)", "motivo": "Un solo síntoma muy general; se usa como síntoma típico, no como regla de certeza."},
+    {"plaga": "verruga", "texto": "semilla dañada o tierra poco buena", "motivo": "Describe causas, no algo que se observe en la planta."},
+    {"plaga": "rona", "texto": "abultamiento en los tallos (4)", "motivo": "La guía del CIP ubica la roña en tubérculos y raíces, no en tallos."},
+    {"plaga": "pudricion_seca", "texto": "manchas hundidas en la cáscara de la papa", "motivo": "Coincide con el síntoma de alternariosis en tubérculo de la guía; se deja como discrepancia."},
+    {"plaga": "pierna_negra", "texto": "el tallo se vuelve frágil y tiene manchas oscuras", "motivo": "Ambiguo: también describe el tallo con rancha."},
+    {"plaga": "pudricion_blanda", "texto": "tallo frágil y blando con manchas", "motivo": "Describe la pierna negra (ambas son 'chupadera' en la zona)."},
+    {"plaga": "trips", "texto": "puntos negros pequeños en las hojas recién nacidas (4)", "motivo": "Puntaje bajo y sin respaldo en la guía."},
+    {"plaga": "pulguilla", "texto": "larvas y pulgas en las hojas (4)", "motivo": "Puntaje bajo; la perforación del follaje ya cubre la plaga."}
+  ],
+  "descartes": [
+    {"plaga": "marchitez_bacteriana", "si_no": ["tu_exudado_anillo_vascular"], "respuesta": "sí"},
+    {"plaga": "tizon_tardio", "si_no": ["h_pelusilla_enves"], "respuesta": "a veces"},
+    {"plaga": "alternariosis", "si_no": ["h_anillos_concentricos"], "respuesta": "a veces"},
+    {"plaga": "virosis", "si_no": ["h_mosaico", "h_moteado"], "respuesta": "a veces"}
+  ],
+  "grupos_manejo": [
+    {"plagas": ["tizon_tardio", "alternariosis"], "nota": "Según el experto, en la zona ambas se tratan con el mismo producto, por eso no siempre se distingue cuál es."},
+    {"plagas": ["pudricion_blanda", "pudricion_seca"], "nota": "Según el experto, ambas se tratan con el mismo producto."}
+  ],
+  "orden_revision": ["hojas", "planta", "tallos", "raices", "tuberculos"],
+  "notas": [
+    "Revisa primero el color de las hojas, el tamaño de la planta y los tallos; arranca la planta solo si sospecha de algo en la raíz o en la papa.",
+    "La rancha y el platanero pueden aparecer juntos en la misma planta.",
+    "La marchitez bacteriana no es propia de la zona.",
+    "En la zona no hay granizadas ni heladas fuertes, por eso las enfermedades son fáciles de reconocer."
+  ],
+  "casos": [
+    {"id": "crispin_1", "texto": "Planta pequeña y los tubérculos con manchas y verrugas; clima cálido y suelo arcilloso.", "hechos": {"p_enanismo": 1, "x_tumores": 1, "c_clima_calido": 1}, "esperado": "verruga", "nota": "Coincide con la guía."},
+    {"id": "crispin_2", "texto": "Amarillamiento de las hojas; la papa tenía manchas negras y era pequeña; abril, algo de lluvia, suelo arenoso.", "hechos": {"h_amarillamiento": 1, "tu_costras": 1, "tu_tamano_reducido": 1}, "esperado": "rizoctoniasis", "nota": "Las manchas negras pequeñas en la papa corresponden a las costras (esclerocios) de la rizoctoniasis."},
+    {"id": "crispin_3", "texto": "Hojas marchitas y negras; las papas salían picadas y podridas; lluvia constante, suelo arcilloso.", "hechos": {"p_marchitez": 1, "h_manchas_necroticas": 1, "tu_galerias_irregulares": 0.5, "tu_pudricion_blanda_crema": 0.5, "c_suelo_muy_humedo": 1}, "esperado": "verruga", "discrepancia": true, "nota": "El experto lo llamó verruga, pero los síntomas descritos no son los de la verruga en la guía del CIP. Se reporta como discrepancia, no como error del sistema."}
+  ],
+  "pendientes": [
+    "Qué son 'sogopi' (se pudre la semilla), 'isha' (se da por el platanero y la rancha) y 'demato' (huevos en la raíz, probablemente nematodo).",
+    "A qué enfermedad llama 'mancha negra' (probablemente alternariosis).",
+    "Por qué llama verruga al caso 3."
+  ]
+}

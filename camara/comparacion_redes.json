@@ -1,0 +1,41 @@
+{
+  "fotos": 222,
+  "clases": {
+    "rancha": 105,
+    "alternaria": 117
+  },
+  "linea_base_mayoritaria": 0.527,
+  "protocolo": "StandardScaler + clasificador; StratifiedKFold(5) x 3 semillas; exactitud media",
+  "redes": {
+    "MobileNet v1 (ImageNet)": {
+      "dimension": 1024,
+      "exactitud": {
+        "svm_c3": 0.652,
+        "logistica_c0.1": 0.607,
+        "logistica_c1": 0.611
+      },
+      "mejor": 0.652,
+      "segundos_extraccion": 6.6
+    },
+    "EfficientNet-B0 (Noisy Student)": {
+      "dimension": 1280,
+      "exactitud": {
+        "svm_c3": 0.61,
+        "logistica_c0.1": 0.599,
+        "logistica_c1": 0.595
+      },
+      "mejor": 0.61,
+      "segundos_extraccion": 11.9
+    },
+    "EfficientNet-B3 (Noisy Student)": {
+      "dimension": 1536,
+      "exactitud": {
+        "svm_c3": 0.64,
+        "logistica_c0.1": 0.637,
+        "logistica_c1": 0.631
+      },
+      "mejor": 0.64,
+      "segundos_extraccion": 21.6
+    }
+  }
+}

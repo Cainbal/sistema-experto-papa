@@ -1,0 +1,3 @@
+hoja_rancha_plantvillage.jpg: hoja de papa con tizón tardío del conjunto PlantVillage
+(Hughes y Salathé, 2015; licencia CC BY-SA 3.0). Solo se usa en la prueba de la cámara
+(pruebas/test_interfaz.py) y en la demostración.

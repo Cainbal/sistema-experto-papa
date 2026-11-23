@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource/atkinson-hyperlegible/400.css";
+@import "@fontsource/atkinson-hyperlegible/700.css";
+
+/* Paleta tomada del cultivo: flor de la papa (violeta), hoja (verde),
+   pulpa (amarillo) y tierra. La página es oscura para que esos colores manden. */
+@theme {
+  --color-noche: #1c1230;
+  --color-tinta: #1c1230;
+  --color-flor: #6a4c9c;
+  --color-lila: #cbb9f6;
+  --color-hoja: #2e6b4a;
+  --color-brote: #86d6a6;
+  --color-pulpa: #ebc044;
+  --color-tierra: #c98e62;
+  --font-titulo: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-texto: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+html { background: var(--color-noche); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: var(--font-texto);
+  font-size: 17px;
+  line-height: 1.5;
+  background:
+    radial-gradient(70rem 36rem at 88% -8%, #5d3f93 0%, transparent 62%),
+    radial-gradient(60rem 34rem at -8% 108%, #25593f 0%, transparent 62%),
+    var(--color-noche);
+  background-attachment: fixed;
+}
+
+h1, h2, h3 { font-family: var(--font-titulo); line-height: 1.1; }
+
+.panel-flor { background: linear-gradient(160deg, #7355a8 0%, #513582 100%); }
+.panel-hoja { background: linear-gradient(160deg, #2a6a4f 0%, #1a4433 100%); }
+.panel-noche { background: #150d26; border: 1px solid rgba(255, 255, 255, 0.12); }
+.panel-tabla { background: #281b42; }
+
+:focus-visible { outline: 3px solid var(--color-pulpa); outline-offset: 2px; }
+
+/* Movimiento. Todo responde a algo que pasó: una regla que dispara, un
+   síntoma confirmado, una pregunta nueva. Lo único permanente es el vaivén
+   suave de la planta. */
+@keyframes dibuja { to { stroke-dashoffset: 0; } }
+@keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+@keyframes entra {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes mece { from { transform: rotate(-1.3deg); } to { transform: rotate(1.3deg); } }
+@keyframes late {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(235, 192, 68, 0)); }
+  50% { filter: drop-shadow(0 0 7px rgba(235, 192, 68, 1)); }
+}
+@keyframes llueve { from { transform: translateY(-4px); opacity: 0.3; } to { transform: translateY(8px); opacity: 1; } }
+@keyframes sube { from { transform: translateY(4px); opacity: 0.9; } to { transform: translateY(-6px); opacity: 0.2; } }
+
+.arista-nueva { stroke-dasharray: 1; stroke-dashoffset: 1; animation: dibuja 0.5s ease-out forwards; }
+.nodo-nuevo { animation: aparece 0.4s ease-out 0.3s backwards; }
+.marca { animation: aparece 0.6s ease-out; }
+.entra-pregunta { animation: entra 0.3s ease-out; }
+.mece { transform-origin: 180px 270px; animation: mece 6s ease-in-out infinite alternate; }
+.zona-activa { animation: late 1.6s ease-in-out infinite; }
+.lluvia { animation: llueve 0.9s linear infinite alternate; }
+.olor { animation: sube 1.8s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  .arista-nueva { animation: none; stroke-dashoffset: 0; }
+  .nodo-nuevo, .marca, .entra-pregunta, .mece, .zona-activa, .lluvia, .olor { animation: none; }
+}

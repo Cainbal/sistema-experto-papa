@@ -1,0 +1,7 @@
+# Plano de Render: New + > Blueprint > elegir este repositorio.
+services:
+  - type: web
+    name: sistema-experto-papa
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/base

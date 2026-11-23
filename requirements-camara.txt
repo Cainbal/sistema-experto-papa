@@ -1,0 +1,4 @@
+# Opcional: la cámara (clasificador de hojas). Sin esto el sistema funciona igual, solo sin cámara.
+onnxruntime>=1.18
+numpy>=1.26
+pillow>=10.0

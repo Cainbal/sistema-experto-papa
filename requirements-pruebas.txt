@@ -1,0 +1,4 @@
+# Solo para ejecutar las pruebas de la API y de la interfaz.
+httpx
+httpx2
+playwright

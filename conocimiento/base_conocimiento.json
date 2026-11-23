@@ -1,0 +1,2505 @@
+{
+ "meta": {
+  "nombre": "Base de conocimiento: plagas y enfermedades de la papa en la zona andina",
+  "version": "2.0",
+  "escala_respuestas": {
+   "si": 1.0,
+   "un_poco": 0.5,
+   "no_se": 0.0,
+   "no": -1.0
+  },
+  "umbral_disparo": 0.2,
+  "fuentes": [
+   "Pérez, W. y Forbes, G. (2011). Guía de identificación de plagas que afectan a la papa en la zona andina. Centro Internacional de la Papa (CIP). Lima, Perú. 48 p. ISBN 978-92-9060-402-0.",
+   "Entrevista a Crispín Reyes Jesús, agricultor de Huánuco con unos 30 años de experiencia (noviembre de 2026).",
+   "Wallin, J. R. (1962). Summary of recent progress in predicting late blight epidemics in United States and Canada. American Potato Journal, 39, 306-312 (tabla de severidad usada por BLITECAST)."
+  ],
+  "fuente": "Pérez, W. y Forbes, G. (2011). Guía de identificación de plagas que afectan a la papa en la zona andina. Centro Internacional de la Papa (CIP). Lima, Perú. 48 p. ISBN 978-92-9060-402-0.",
+  "calibracion": {
+   "explicacion": "Los pesos de las reglas de síntomas se calculan con el teorema de Bayes: tipicidad del experto = P(síntoma|plaga), frecuencia en la zona = P(plaga), fuga = probabilidad de que el síntoma aparezca por otra causa. peso = P(s|d)P(d) / (suma sobre las plagas que comparten el síntoma de P(s|d')P(d') + fuga). Si el experto no evaluó el síntoma, P(s|d) se toma del criterio original basado en la guía. Las combinaciones del experto también se tratan como tipicidad: para la misma combinación dio 6 a la rancha y 6 a la alternariosis, lo que no puede ser una certeza (sumarían más de 1).",
+   "prior": {
+    "nunca": 0.01,
+    "rara vez": 0.04,
+    "a veces": 0.1,
+    "siempre": 0.25
+   },
+   "fuga": {
+    "signo": 0.005,
+    "especifico": 0.02,
+    "general": 0.1
+   },
+   "descarte": {
+    "sí": 0.8,
+    "a veces": 0.3,
+    "no": 0.0
+   },
+   "limites_peso": [
+    0.05,
+    0.95
+   ],
+   "alfa": 0.5,
+   "explicacion_alfa": "Peso final = alfa x peso de Bayes (datos del experto) + (1 - alfa) x peso basado en la guía. Con un solo experto entrevistado, sus puntajes tienen ruido; mezclarlos con la guía (contracción) reduce ese ruido. Se usa alfa = 0,5, el valor neutral (igual confianza en ambas fuentes). El análisis de sensibilidad de la evaluación muestra que entre 0 y 0,5 los resultados son parecidos y que confiar solo en el experto (alfa = 1) empeora la robustez."
+  },
+  "orden_revision": [
+   "hojas",
+   "planta",
+   "tallos",
+   "raices",
+   "tuberculos"
+  ]
+ },
+ "partes": {
+  "hojas": "Hojas",
+  "tallos": "Tallos y brotes",
+  "planta": "Planta completa",
+  "raices": "Raíces y estolones",
+  "tuberculos": "Tubérculos",
+  "condiciones": "Clima, suelo y manejo"
+ },
+ "hechos": [
+  {
+   "id": "h_manchas_necroticas",
+   "corto": "Manchas marrones en hojas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las hojas tienen manchas necróticas (tejido muerto) de color marrón claro a oscuro?",
+   "especificidad": "general"
+  },
+  {
+   "id": "h_pelusilla_enves",
+   "corto": "Pelusilla blanca en el envés",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "signo",
+   "pregunta": "¿Se ve una pelusilla blanquecina en el envés (cara inferior) de las hojas?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "h_anillos_concentricos",
+   "corto": "Manchas con anillos concéntricos",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las manchas de las hojas tienen anillos concéntricos (círculos uno dentro de otro)?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "h_manchas_limitadas_nervaduras",
+   "corto": "Manchas limitadas por nervaduras",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las manchas de las hojas están restringidas por las nervaduras?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_amarillamiento",
+   "corto": "Amarillamiento",
+   "partes": [
+    "hojas",
+    "planta"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las hojas o la planta se ven amarillentas?",
+   "especificidad": "general"
+  },
+  {
+   "id": "h_deformacion",
+   "corto": "Hojas deformadas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las hojas están deformadas?",
+   "especificidad": "general"
+  },
+  {
+   "id": "h_mosaico",
+   "corto": "Mosaico en hojas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las hojas muestran mosaico (zonas de verde normal mezcladas con amarillo o verde claro)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_moteado",
+   "corto": "Moteado en hojas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las hojas muestran moteado (áreas irregulares de verde claro y verde oscuro)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_necrosis_nervaduras",
+   "corto": "Nervaduras necrosadas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las nervaduras de las hojas están necrosadas (muertas, oscuras)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_media_luna",
+   "corto": "Mordeduras en media luna",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Las hojas tienen daños (mordeduras) en forma de media luna?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_minado",
+   "corto": "Hojas minadas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Las hojas están minadas (con galerías hechas por larvas dentro de la hoja)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_manchas_plateadas",
+   "corto": "Manchas plateadas",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Las hojas presentan manchas plateadas?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_insectos_enves",
+   "corto": "Insectos en el envés",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "signo",
+   "pregunta": "¿Hay insectos muy pequeños en el envés de las hojas succionando la savia?",
+   "especificidad": "general"
+  },
+  {
+   "id": "h_perforaciones",
+   "corto": "Perforaciones en el follaje",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Hay perforaciones (agujeritos) repartidas en todo el follaje?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_tumores_hojas_flores",
+   "corto": "Tumores en hojas o flores",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Hay tumores en hojas o flores?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "t_manchas_alargadas_quebradizo",
+   "corto": "Tallos con manchas, quebradizos",
+   "partes": [
+    "tallos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tallos tienen manchas alargadas que los vuelven quebradizos?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "t_manchas_necroticas",
+   "corto": "Manchas necróticas en tallos",
+   "partes": [
+    "tallos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tallos tienen manchas necróticas (tejido muerto)?",
+   "especificidad": "general"
+  },
+  {
+   "id": "t_cancros",
+   "corto": "Cancros en tallos",
+   "partes": [
+    "tallos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tallos tienen cancros (lesiones necróticas y profundas)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "t_tuberculos_aereos",
+   "corto": "Tubérculos aéreos",
+   "partes": [
+    "tallos",
+    "planta"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La planta forma tubérculos aéreos (papitas en el tallo, fuera de la tierra)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "t_base_pudricion_negra",
+   "corto": "Pudrición negra en base del tallo",
+   "partes": [
+    "tallos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La base de los tallos tiene una pudrición de color negro y consistencia suave?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "t_barrenado_caida_hojas",
+   "corto": "Tallos barrenados por larvas",
+   "partes": [
+    "tallos"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Hay larvas que entran por las axilas, barrenan los tallos y hacen caer las hojas?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "b_lesiones_estrangulan",
+   "corto": "Lesiones que estrangulan brotes",
+   "partes": [
+    "tallos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los brotes tienen lesiones necróticas que estrangulan la planta?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "x_tumores",
+   "corto": "Tumores en tallos o tubérculos",
+   "partes": [
+    "tallos",
+    "raices",
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Hay tumores en tallos, estolones o tubérculos?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "p_marchitez",
+   "corto": "Marchitez",
+   "partes": [
+    "planta"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La planta se marchita, ya sea en un solo tallo o completa?",
+   "especificidad": "general"
+  },
+  {
+   "id": "p_enanismo",
+   "corto": "Enanismo",
+   "partes": [
+    "planta"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La planta presenta enanismo (se quedó pequeña)?",
+   "especificidad": "general"
+  },
+  {
+   "id": "p_detiene_crecimiento",
+   "corto": "Crecimiento detenido",
+   "partes": [
+    "planta"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La planta detuvo su crecimiento?",
+   "especificidad": "general"
+  },
+  {
+   "id": "p_rigidez",
+   "corto": "Planta rígida",
+   "partes": [
+    "planta"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La planta se ve rígida?",
+   "especificidad": "general"
+  },
+  {
+   "id": "p_secado_muerte",
+   "corto": "Plantas que se secan",
+   "partes": [
+    "planta"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Las plantas se están secando y muriendo?",
+   "especificidad": "general"
+  },
+  {
+   "id": "r_necrosis",
+   "corto": "Necrosis en raíces",
+   "partes": [
+    "raices"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las raíces tienen necrosis (partes muertas, oscuras)?",
+   "especificidad": "general"
+  },
+  {
+   "id": "r_agallas_oscuras",
+   "corto": "Agallas oscuras en raíces",
+   "partes": [
+    "raices"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Las raíces o estolones tienen agallas irregulares de color oscuro (hasta 1.5 cm)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "r_quistes",
+   "corto": "Quistes en raíces",
+   "partes": [
+    "raices"
+   ],
+   "tipo": "signo",
+   "pregunta": "¿En las raíces y raicillas se ven bolitas redondas amarillas o blancas pegadas?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "e_cancros",
+   "corto": "Cancros en estolones",
+   "partes": [
+    "raices"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los estolones tienen cancros (lesiones necróticas y profundas)?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_manchas_marron_rojizo_humedas",
+   "corto": "Manchas marrón rojizo húmedas",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La superficie del tubérculo tiene manchas irregulares marrón rojizo de apariencia húmeda?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_corte_estrias_necroticas",
+   "corto": "Estrías necróticas al corte",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "Al cortar el tubérculo a lo largo, ¿se ven estrías necróticas que van de la superficie hacia el centro?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_manchas_marron_oscuro_hundidas",
+   "corto": "Manchas oscuras hundidas",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo tiene manchas circulares o irregulares marrón oscuro, ligeramente hundidas?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_costras",
+   "corto": "Costras en la cáscara",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo tiene costras (superficies endurecidas) pegadas en la cáscara?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_pustulas_polvillo",
+   "corto": "Pústulas con polvillo marrón",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo tiene pústulas que al madurar sueltan un polvillo marrón oscuro?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "tu_pudricion_seca",
+   "corto": "Pudrición seca",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo tiene una pudrición seca?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_arrugado_momificado",
+   "corto": "Tubérculo arrugado, momificado",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo podrido se arruga y termina momificado?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_agallas",
+   "corto": "Agallas en tubérculos",
+   "partes": [
+    "tuberculos",
+    "raices"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Hay agallas (hinchamientos) en tubérculos o estolones?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_agallas_interior_negruzco",
+   "corto": "Agallas negruzcas por dentro",
+   "partes": [
+    "tuberculos",
+    "raices"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "Al cortar esas agallas, ¿el tejido es granuloso y de color negruzco?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "tu_decoloracion_superficie",
+   "corto": "Superficie decolorada",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿La superficie del tubérculo está decolorada?",
+   "especificidad": "general"
+  },
+  {
+   "id": "tu_exudado_anillo_vascular",
+   "corto": "Gotitas en el anillo vascular",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "signo",
+   "pregunta": "Al cortar el tubérculo transversalmente y presionarlo, ¿salen gotitas blanquecinas por el anillo vascular?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "tu_exudado_ojos",
+   "corto": "Exudado por los ojos",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "signo",
+   "pregunta": "¿Sale un exudado blanquecino por los ojos del tubérculo o por el extremo del estolón?",
+   "especificidad": "signo"
+  },
+  {
+   "id": "tu_pudricion_blanda_crema",
+   "corto": "Pudrición blanda color crema",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo tiene una pudrición de consistencia suave y color crema, con borde oscuro?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_olor_desagradable",
+   "corto": "Olor desagradable",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿El tubérculo podrido despide un olor desagradable?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_tamano_reducido",
+   "corto": "Tubérculos pequeños",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tubérculos son más pequeños de lo normal?",
+   "especificidad": "general"
+  },
+  {
+   "id": "tu_deformes",
+   "corto": "Tubérculos deformes",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tubérculos están deformes?",
+   "especificidad": "general"
+  },
+  {
+   "id": "tu_rajaduras",
+   "corto": "Rajaduras",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tubérculos tienen rajaduras?",
+   "especificidad": "general"
+  },
+  {
+   "id": "tu_necrosis",
+   "corto": "Necrosis en tubérculos",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "sintoma",
+   "pregunta": "¿Los tubérculos tienen necrosis (zonas de tejido muerto)?",
+   "especificidad": "general"
+  },
+  {
+   "id": "tu_galerias_profundas",
+   "corto": "Galerías profundas",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿El tubérculo tiene galerías profundas hechas por larvas?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_agujeros_circulares",
+   "corto": "Agujeros circulares de salida",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿El tubérculo tiene agujeros circulares de salida de larvas?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "tu_galerias_irregulares",
+   "corto": "Galerías irregulares",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿El tubérculo tiene galerías irregulares hechas por larvas?",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "c_templado_humedo",
+   "corto": "Días templados y húmedos",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Los días han sido templados y con humedad muy alta?"
+  },
+  {
+   "id": "c_clima_calido",
+   "corto": "Clima cálido",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿El clima ha sido cálido?"
+  },
+  {
+   "id": "c_seco_sin_lluvias",
+   "corto": "Tiempo seco, sin lluvias",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿El tiempo ha estado seco, sin lluvias?"
+  },
+  {
+   "id": "c_calor_lluvia_alternada",
+   "corto": "Calor con lluvias alternadas",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Ha habido días calurosos con alternancia de días lluviosos y secos?"
+  },
+  {
+   "id": "c_suelo_muy_humedo",
+   "corto": "Suelo con exceso de humedad",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿El suelo tiene exceso de humedad (riegos pesados o campo anegado)?"
+  },
+  {
+   "id": "c_heridas_tuberculos",
+   "corto": "Tubérculos con heridas",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Los tubérculos tienen heridas (golpes o cortes)?"
+  },
+  {
+   "id": "c_almacen_inadecuado",
+   "corto": "Almacén sin ventilación",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Los tubérculos están en un almacén inadecuado (sin ventilación)?"
+  },
+  {
+   "id": "c_misma_semilla",
+   "corto": "Misma semilla varias campañas",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Se ha usado la misma semilla por varias campañas?"
+  },
+  {
+   "id": "c_insectos_vectores",
+   "corto": "Muchos áfidos o cigarritas",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Hay alta población de áfidos (pulgones), cigarritas o mosca blanca?"
+  },
+  {
+   "id": "c_monocultivo",
+   "corto": "Monocultivo de papa",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿En ese campo se siembra papa campaña tras campaña (monocultivo)?"
+  },
+  {
+   "id": "c_chamico",
+   "corto": "Chamico en el campo",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "condicion",
+   "pregunta": "¿Hay chamico (Datura stramonium) en el campo o alrededores?"
+  },
+  {
+   "id": "temperatura",
+   "corto": "Temperatura",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "medicion",
+   "unidad": "°C",
+   "pregunta": "Temperatura del ambiente (°C)"
+  },
+  {
+   "id": "humedad_relativa",
+   "corto": "Humedad relativa",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "medicion",
+   "unidad": "%",
+   "pregunta": "Humedad relativa del aire (%)"
+  },
+  {
+   "id": "ambiente_templado_humedo",
+   "corto": "Ambiente templado y húmedo",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "derivado",
+   "pregunta": "Ambiente templado y muy húmedo"
+  },
+  {
+   "id": "ambiente_calido",
+   "corto": "Ambiente cálido",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "derivado",
+   "pregunta": "Ambiente cálido"
+  },
+  {
+   "id": "ambiente_calido_seco",
+   "corto": "Ambiente cálido y seco",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "derivado",
+   "pregunta": "Ambiente cálido y seco"
+  },
+  {
+   "id": "tu_larvas_blancas",
+   "corto": "Larvas blancas en tubérculos",
+   "partes": [
+    "tuberculos"
+   ],
+   "tipo": "dano",
+   "pregunta": "¿Hay gusanos o larvas blancas dentro de los tubérculos?",
+   "fuente": "experto",
+   "especificidad": "especifico"
+  },
+  {
+   "id": "h_huevos_axilas",
+   "corto": "Huevecillos en las axilas",
+   "partes": [
+    "tallos",
+    "hojas"
+   ],
+   "tipo": "signo",
+   "pregunta": "¿Hay huevecillos en la unión de las hojas con el tallo (axilas)?",
+   "fuente": "experto",
+   "especificidad": "signo"
+  },
+  {
+   "id": "humedad_suelo",
+   "corto": "Humedad del suelo",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "medicion",
+   "unidad": "%",
+   "pregunta": "Humedad del suelo (%)"
+  },
+  {
+   "id": "plantas_afectadas",
+   "corto": "Plantas afectadas",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "medicion",
+   "unidad": "%",
+   "pregunta": "Porcentaje aproximado de plantas afectadas en el campo (%)"
+  },
+  {
+   "id": "dsv_rancha",
+   "corto": "Severidad de Wallin",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "medicion",
+   "unidad": "",
+   "pregunta": "Severidad de Wallin de las últimas 24 horas (0 a 4)"
+  },
+  {
+   "id": "foto_rancha",
+   "corto": "La foto muestra rancha",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "percepcion",
+   "pregunta": "La cámara reconoce lesiones de tizón tardío"
+  },
+  {
+   "id": "foto_alternaria",
+   "corto": "La foto muestra alternariosis",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "percepcion",
+   "pregunta": "La cámara reconoce lesiones de alternariosis"
+  },
+  {
+   "id": "foto_sana",
+   "corto": "La foto muestra hoja sana",
+   "partes": [
+    "hojas"
+   ],
+   "tipo": "percepcion",
+   "pregunta": "La cámara reconoce una hoja sana"
+  },
+  {
+   "id": "suelo_saturado",
+   "corto": "Suelo saturado",
+   "partes": [
+    "condiciones"
+   ],
+   "tipo": "derivado",
+   "pregunta": "Suelo saturado de agua"
+  }
+ ],
+ "reglas": [
+  {
+   "id": "D01",
+   "si": [
+    {
+     "hecho": "temperatura",
+     "es": "templada"
+    },
+    {
+     "hecho": "humedad_relativa",
+     "es": "alta"
+    }
+   ],
+   "entonces": "ambiente_templado_humedo",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 1,
+   "fuente": "difuso"
+  },
+  {
+   "id": "D02",
+   "si": [
+    "c_templado_humedo"
+   ],
+   "entonces": "ambiente_templado_humedo",
+   "fc": 0.8,
+   "tipo": "derivacion",
+   "ficha": 1,
+   "fuente": "guia"
+  },
+  {
+   "id": "D03",
+   "si": [
+    "c_clima_calido"
+   ],
+   "entonces": "ambiente_calido",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 13,
+   "fuente": "guia"
+  },
+  {
+   "id": "D04",
+   "si": [
+    {
+     "hecho": "temperatura",
+     "es": "calida"
+    }
+   ],
+   "entonces": "ambiente_calido",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 13,
+   "fuente": "difuso"
+  },
+  {
+   "id": "D05",
+   "si": [
+    "ambiente_calido",
+    "c_seco_sin_lluvias"
+   ],
+   "entonces": "ambiente_calido_seco",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 13,
+   "fuente": "guia"
+  },
+  {
+   "id": "R01",
+   "si": [
+    "h_pelusilla_enves"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.85,
+   "tipo": "signo",
+   "ficha": 1,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R02",
+   "si": [
+    "h_manchas_necroticas"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 1,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R03",
+   "si": [
+    "t_manchas_alargadas_quebradizo"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 1,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R04",
+   "si": [
+    "tu_manchas_marron_rojizo_humedas"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 1,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R05",
+   "si": [
+    "tu_corte_estrias_necroticas"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 1,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R06",
+   "si": [
+    "ambiente_templado_humedo"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.3,
+   "tipo": "condicion",
+   "ficha": 1,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R07",
+   "si": [
+    "h_manchas_necroticas",
+    "h_anillos_concentricos"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.85,
+   "tipo": "sintoma",
+   "ficha": 2,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R08",
+   "si": [
+    "h_manchas_necroticas"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 2,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R09",
+   "si": [
+    "h_manchas_limitadas_nervaduras"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 2,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R10",
+   "si": [
+    "t_manchas_necroticas"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 2,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R11",
+   "si": [
+    "tu_manchas_marron_oscuro_hundidas"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.5,
+   "tipo": "sintoma",
+   "ficha": 2,
+   "fuente": "guia",
+   "fc_guia": 0.5
+  },
+  {
+   "id": "R12",
+   "si": [
+    "c_calor_lluvia_alternada"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 2,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R13",
+   "si": [
+    "b_lesiones_estrangulan"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R14",
+   "si": [
+    "r_necrosis"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.4,
+   "tipo": "sintoma",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.4
+  },
+  {
+   "id": "R15",
+   "si": [
+    "t_cancros"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R16",
+   "si": [
+    "t_tuberculos_aereos"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R17",
+   "si": [
+    "e_cancros"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R18",
+   "si": [
+    "tu_costras"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R19",
+   "si": [
+    "suelo_saturado"
+   ],
+   "entonces": "rizoctoniasis",
+   "fc": 0.15,
+   "tipo": "condicion",
+   "ficha": 3,
+   "fuente": "guia",
+   "fc_guia": 0.15
+  },
+  {
+   "id": "R20",
+   "si": [
+    "x_tumores"
+   ],
+   "entonces": "verruga",
+   "fc": 0.85,
+   "tipo": "sintoma",
+   "ficha": 4,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R21",
+   "si": [
+    "h_tumores_hojas_flores"
+   ],
+   "entonces": "verruga",
+   "fc": 0.5,
+   "tipo": "sintoma",
+   "ficha": 4,
+   "fuente": "guia",
+   "fc_guia": 0.5
+  },
+  {
+   "id": "R22",
+   "si": [
+    "tu_pustulas_polvillo"
+   ],
+   "entonces": "rona",
+   "fc": 0.85,
+   "tipo": "sintoma",
+   "ficha": 5,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R23",
+   "si": [
+    "r_agallas_oscuras"
+   ],
+   "entonces": "rona",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 5,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R24",
+   "si": [
+    "tu_pudricion_seca"
+   ],
+   "entonces": "pudricion_seca",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 6,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R25",
+   "si": [
+    "tu_pudricion_seca",
+    "tu_arrugado_momificado"
+   ],
+   "entonces": "pudricion_seca",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 6,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R26",
+   "si": [
+    "c_heridas_tuberculos"
+   ],
+   "entonces": "pudricion_seca",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 6,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R27",
+   "si": [
+    "c_almacen_inadecuado"
+   ],
+   "entonces": "pudricion_seca",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 6,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R28",
+   "si": [
+    "tu_agallas"
+   ],
+   "entonces": "carbon",
+   "fc": 0.4,
+   "tipo": "sintoma",
+   "ficha": 7,
+   "fuente": "guia",
+   "fc_guia": 0.4,
+   "tipicidad_combinacion": 0.6
+  },
+  {
+   "id": "R29",
+   "si": [
+    "tu_agallas",
+    "tu_agallas_interior_negruzco"
+   ],
+   "entonces": "carbon",
+   "fc": 0.85,
+   "tipo": "sintoma",
+   "ficha": 7,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R30",
+   "si": [
+    "c_monocultivo"
+   ],
+   "entonces": "carbon",
+   "fc": 0.15,
+   "tipo": "condicion",
+   "ficha": 7,
+   "fuente": "guia",
+   "fc_guia": 0.15
+  },
+  {
+   "id": "R31",
+   "si": [
+    "c_chamico"
+   ],
+   "entonces": "carbon",
+   "fc": 0.15,
+   "tipo": "condicion",
+   "ficha": 7,
+   "fuente": "guia",
+   "fc_guia": 0.15
+  },
+  {
+   "id": "R32",
+   "si": [
+    "tu_exudado_anillo_vascular"
+   ],
+   "entonces": "marchitez_bacteriana",
+   "fc": 0.9,
+   "tipo": "signo",
+   "ficha": 8,
+   "fuente": "guia",
+   "fc_guia": 0.9
+  },
+  {
+   "id": "R33",
+   "si": [
+    "tu_exudado_ojos"
+   ],
+   "entonces": "marchitez_bacteriana",
+   "fc": 0.8,
+   "tipo": "signo",
+   "ficha": 8,
+   "fuente": "guia",
+   "fc_guia": 0.8
+  },
+  {
+   "id": "R34",
+   "si": [
+    "p_marchitez"
+   ],
+   "entonces": "marchitez_bacteriana",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 8,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R35",
+   "si": [
+    "tu_decoloracion_superficie"
+   ],
+   "entonces": "marchitez_bacteriana",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 8,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R36",
+   "si": [
+    "ambiente_calido"
+   ],
+   "entonces": "marchitez_bacteriana",
+   "fc": 0.15,
+   "tipo": "condicion",
+   "ficha": 8,
+   "fuente": "guia",
+   "fc_guia": 0.15
+  },
+  {
+   "id": "R37",
+   "si": [
+    "t_base_pudricion_negra"
+   ],
+   "entonces": "pierna_negra",
+   "fc": 0.85,
+   "tipo": "sintoma",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R38",
+   "si": [
+    "h_amarillamiento"
+   ],
+   "entonces": "pierna_negra",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R39",
+   "si": [
+    "p_detiene_crecimiento"
+   ],
+   "entonces": "pierna_negra",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R40",
+   "si": [
+    "suelo_saturado"
+   ],
+   "entonces": "pierna_negra",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R41",
+   "si": [
+    "tu_pudricion_blanda_crema"
+   ],
+   "entonces": "pudricion_blanda",
+   "fc": 0.8,
+   "tipo": "sintoma",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.8
+  },
+  {
+   "id": "R42",
+   "si": [
+    "tu_olor_desagradable"
+   ],
+   "entonces": "pudricion_blanda",
+   "fc": 0.6,
+   "tipo": "sintoma",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R43",
+   "si": [
+    "suelo_saturado"
+   ],
+   "entonces": "pudricion_blanda",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R44",
+   "si": [
+    "c_heridas_tuberculos"
+   ],
+   "entonces": "pudricion_blanda",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R45",
+   "si": [
+    "c_almacen_inadecuado"
+   ],
+   "entonces": "pudricion_blanda",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 9,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R46",
+   "si": [
+    "h_mosaico"
+   ],
+   "entonces": "virosis",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R47",
+   "si": [
+    "h_moteado"
+   ],
+   "entonces": "virosis",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R48",
+   "si": [
+    "h_necrosis_nervaduras"
+   ],
+   "entonces": "virosis",
+   "fc": 0.7,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R49",
+   "si": [
+    "p_enanismo"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R50",
+   "si": [
+    "h_amarillamiento"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R51",
+   "si": [
+    "h_deformacion"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R52",
+   "si": [
+    "p_rigidez"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R53",
+   "si": [
+    "tu_tamano_reducido"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R54",
+   "si": [
+    "tu_deformes"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R55",
+   "si": [
+    "tu_rajaduras"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R56",
+   "si": [
+    "tu_necrosis"
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R57",
+   "si": [
+    "c_misma_semilla"
+   ],
+   "entonces": "virosis",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R58",
+   "si": [
+    "c_insectos_vectores"
+   ],
+   "entonces": "virosis",
+   "fc": 0.25,
+   "tipo": "condicion",
+   "ficha": 10,
+   "fuente": "guia",
+   "fc_guia": 0.25
+  },
+  {
+   "id": "R59",
+   "si": [
+    "r_quistes"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.9,
+   "tipo": "signo",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.9,
+   "tipicidad_combinacion": 0.8
+  },
+  {
+   "id": "R60",
+   "si": [
+    "p_enanismo"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R61",
+   "si": [
+    "h_amarillamiento"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R62",
+   "si": [
+    "h_deformacion"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R63",
+   "si": [
+    "p_rigidez"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R64",
+   "si": [
+    "tu_tamano_reducido"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R65",
+   "si": [
+    "tu_deformes"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R66",
+   "si": [
+    "tu_rajaduras"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R67",
+   "si": [
+    "tu_necrosis"
+   ],
+   "entonces": "nematodo_quiste",
+   "fc": 0.3,
+   "tipo": "sintoma",
+   "ficha": 11,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R68",
+   "si": [
+    "h_media_luna"
+   ],
+   "entonces": "gorgojo_andes",
+   "fc": 0.85,
+   "tipo": "dano",
+   "ficha": 12,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R69",
+   "si": [
+    "tu_galerias_profundas"
+   ],
+   "entonces": "gorgojo_andes",
+   "fc": 0.6,
+   "tipo": "dano",
+   "ficha": 12,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R70",
+   "si": [
+    "tu_agujeros_circulares"
+   ],
+   "entonces": "gorgojo_andes",
+   "fc": 0.7,
+   "tipo": "dano",
+   "ficha": 12,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R71",
+   "si": [
+    "h_minado"
+   ],
+   "entonces": "polilla",
+   "fc": 0.6,
+   "tipo": "dano",
+   "ficha": 13,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R72",
+   "si": [
+    "t_barrenado_caida_hojas"
+   ],
+   "entonces": "polilla",
+   "fc": 0.7,
+   "tipo": "dano",
+   "ficha": 13,
+   "fuente": "guia",
+   "fc_guia": 0.7
+  },
+  {
+   "id": "R73",
+   "si": [
+    "tu_galerias_irregulares"
+   ],
+   "entonces": "polilla",
+   "fc": 0.6,
+   "tipo": "dano",
+   "ficha": 13,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R74",
+   "si": [
+    "ambiente_calido_seco"
+   ],
+   "entonces": "polilla",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 13,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R75",
+   "si": [
+    "h_manchas_plateadas"
+   ],
+   "entonces": "trips",
+   "fc": 0.8,
+   "tipo": "dano",
+   "ficha": 14,
+   "fuente": "guia",
+   "fc_guia": 0.8
+  },
+  {
+   "id": "R76",
+   "si": [
+    "h_insectos_enves"
+   ],
+   "entonces": "trips",
+   "fc": 0.6,
+   "tipo": "signo",
+   "ficha": 14,
+   "fuente": "guia",
+   "fc_guia": 0.6
+  },
+  {
+   "id": "R77",
+   "si": [
+    "p_secado_muerte"
+   ],
+   "entonces": "trips",
+   "fc": 0.3,
+   "tipo": "dano",
+   "ficha": 14,
+   "fuente": "guia",
+   "fc_guia": 0.3
+  },
+  {
+   "id": "R78",
+   "si": [
+    "ambiente_calido_seco"
+   ],
+   "entonces": "trips",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 14,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "R79",
+   "si": [
+    "h_perforaciones"
+   ],
+   "entonces": "pulguilla",
+   "fc": 0.85,
+   "tipo": "dano",
+   "ficha": 15,
+   "fuente": "guia",
+   "fc_guia": 0.85
+  },
+  {
+   "id": "R80",
+   "si": [
+    "ambiente_calido_seco"
+   ],
+   "entonces": "pulguilla",
+   "fc": 0.2,
+   "tipo": "condicion",
+   "ficha": 15,
+   "fuente": "guia",
+   "fc_guia": 0.2
+  },
+  {
+   "id": "D06",
+   "si": [
+    "ambiente_calido",
+    {
+     "hecho": "humedad_relativa",
+     "es": "baja"
+    }
+   ],
+   "entonces": "ambiente_calido_seco",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 13,
+   "fuente": "difuso"
+  },
+  {
+   "id": "D07",
+   "si": [
+    "c_suelo_muy_humedo"
+   ],
+   "entonces": "suelo_saturado",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 3,
+   "fuente": "difuso"
+  },
+  {
+   "id": "D08",
+   "si": [
+    {
+     "hecho": "humedad_suelo",
+     "es": "saturada"
+    }
+   ],
+   "entonces": "suelo_saturado",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 3,
+   "fuente": "difuso"
+  },
+  {
+   "id": "D09",
+   "si": [
+    {
+     "hecho": "dsv_rancha",
+     "es": "alto"
+    }
+   ],
+   "entonces": "ambiente_templado_humedo",
+   "fc": 1.0,
+   "tipo": "derivacion",
+   "ficha": 1,
+   "fuente": "difuso"
+  },
+  {
+   "id": "E01",
+   "si": [
+    "h_amarillamiento",
+    "p_detiene_crecimiento"
+   ],
+   "entonces": "virosis",
+   "fc": 0.9,
+   "tipo": "sintoma",
+   "ficha": 10,
+   "fuente": "experto",
+   "tipicidad_experto": 0.9
+  },
+  {
+   "id": "E02",
+   "si": [
+    "tu_larvas_blancas"
+   ],
+   "entonces": "gorgojo_andes",
+   "fc": 0.9,
+   "tipo": "dano",
+   "ficha": 12,
+   "fuente": "experto",
+   "tipicidad_experto": 0.9
+  },
+  {
+   "id": "E03",
+   "si": [
+    "h_huevos_axilas"
+   ],
+   "entonces": "polilla",
+   "fc": 0.7,
+   "tipo": "signo",
+   "ficha": 13,
+   "fuente": "experto",
+   "tipicidad_experto": 0.7
+  },
+  {
+   "id": "F01",
+   "si": [
+    "foto_rancha"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.6,
+   "tipo": "percepcion",
+   "ficha": 1,
+   "fuente": "camara"
+  },
+  {
+   "id": "F02",
+   "si": [
+    "foto_alternaria"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.6,
+   "tipo": "percepcion",
+   "ficha": 2,
+   "fuente": "camara"
+  },
+  {
+   "id": "F03",
+   "si": [
+    "foto_sana"
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.4,
+   "tipo": "descarte",
+   "ficha": 1,
+   "fuente": "camara"
+  },
+  {
+   "id": "F04",
+   "si": [
+    "foto_sana"
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.4,
+   "tipo": "descarte",
+   "ficha": 2,
+   "fuente": "camara"
+  },
+  {
+   "id": "N01",
+   "si": [
+    {
+     "hecho": "tu_exudado_anillo_vascular",
+     "no": true
+    }
+   ],
+   "entonces": "marchitez_bacteriana",
+   "fc": 0.8,
+   "tipo": "descarte",
+   "fuente": "experto",
+   "respuesta_experto": "sí",
+   "ficha": 8
+  },
+  {
+   "id": "N02",
+   "si": [
+    {
+     "hecho": "h_pelusilla_enves",
+     "no": true
+    }
+   ],
+   "entonces": "tizon_tardio",
+   "fc": 0.3,
+   "tipo": "descarte",
+   "fuente": "experto",
+   "respuesta_experto": "a veces",
+   "ficha": 1
+  },
+  {
+   "id": "N03",
+   "si": [
+    {
+     "hecho": "h_anillos_concentricos",
+     "no": true
+    }
+   ],
+   "entonces": "alternariosis",
+   "fc": 0.3,
+   "tipo": "descarte",
+   "fuente": "experto",
+   "respuesta_experto": "a veces",
+   "ficha": 2
+  },
+  {
+   "id": "N04",
+   "si": [
+    {
+     "hecho": "h_mosaico",
+     "no": true
+    },
+    {
+     "hecho": "h_moteado",
+     "no": true
+    }
+   ],
+   "entonces": "virosis",
+   "fc": 0.3,
+   "tipo": "descarte",
+   "fuente": "experto",
+   "respuesta_experto": "a veces",
+   "ficha": 10
+  }
+ ],
+ "plagas": [
+  {
+   "id": "tizon_tardio",
+   "nombre": "Tizón tardío",
+   "otros_nombres": [
+    "Rancha",
+    "Lancha"
+   ],
+   "agente": "Phytophthora infestans",
+   "tipo": "Oomiceto",
+   "ficha": 1,
+   "fase": "Desde la emergencia hasta después de floración.",
+   "transmision": "Principalmente por semilla infectada. Las infecciones secundarias se producen a través de tejidos foliares infectados.",
+   "manejo": [
+    "Adelanto de la época de siembra",
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Uso de semilla sana",
+    "Uso de variedad resistente",
+    "Evitar exceso de fertilización nitrogenada",
+    "Distanciamientos adecuados entre plantas y entre surcos",
+    "Aporques altos",
+    "Alternancia de fungicidas (sistémico - contacto)",
+    "Corte de follaje antes de la cosecha",
+    "Cosecha oportuna",
+    "Selección de tubérculos",
+    "Almacenamiento adecuado"
+   ],
+   "nombres_locales": [
+    "rancha"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": "Según el experto, en la zona ambas se tratan con el mismo producto, por eso no siempre se distingue cuál es.",
+   "grupo_con": [
+    "alternariosis"
+   ]
+  },
+  {
+   "id": "alternariosis",
+   "nombre": "Alternariosis",
+   "otros_nombres": [
+    "Alternaria",
+    "Tizón temprano"
+   ],
+   "agente": "Alternaria solani, Alternaria spp.",
+   "tipo": "Hongo",
+   "ficha": 2,
+   "fase": "Generalmente antes de floración hasta la madurez de la planta.",
+   "transmision": "Semilla infectada, rastrojos de plantas afectadas.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Uso de semilla sana",
+    "Uso de variedad resistente (generalmente tardías)",
+    "Uso de fungicidas (contacto - sistémico)",
+    "Corte de follaje antes de la cosecha",
+    "Elección de tubérculos y cosecha oportuna"
+   ],
+   "nombres_locales": [
+    "rancha",
+    "mancha negra (probable)"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": "Según el experto, en la zona ambas se tratan con el mismo producto, por eso no siempre se distingue cuál es.",
+   "grupo_con": [
+    "tizon_tardio"
+   ]
+  },
+  {
+   "id": "rizoctoniasis",
+   "nombre": "Rizoctoniasis",
+   "otros_nombres": [],
+   "agente": "Rhizoctonia solani",
+   "tipo": "Hongo",
+   "ficha": 3,
+   "fase": "En la germinación y emergencia de las plantas, y durante la formación de tubérculos.",
+   "transmision": "Semilla infectada, suelo infestado.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Tratamiento de semilla con fungicidas",
+    "Corte de follaje antes de la cosecha",
+    "Cosecha oportuna y selección de tubérculos"
+   ],
+   "nombres_locales": [
+    "platanero"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "verruga",
+   "nombre": "Verruga",
+   "otros_nombres": [],
+   "agente": "Synchytrium endobioticum",
+   "tipo": "Hongo",
+   "ficha": 4,
+   "fase": "Desde emergencia hasta formación de tubérculos.",
+   "transmision": "Semilla infectada y suelo infestado.",
+   "manejo": [
+    "Elección de terreno donde no se ha reportado la enfermedad",
+    "Eliminación de rastrojos del cultivo anterior",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Uso de variedades resistentes",
+    "Selección negativa (eliminar plantas enfermas)",
+    "Selección de tubérculos",
+    "Reforestación de campos muy contaminados"
+   ],
+   "nombres_locales": [
+    "verruga"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "rona",
+   "nombre": "Roña",
+   "otros_nombres": [
+    "Sarna pulverulenta"
+   ],
+   "agente": "Spongospora subterranea",
+   "tipo": "Hongo",
+   "ficha": 5,
+   "fase": "Desde emergencia hasta formación de tubérculos.",
+   "transmision": "Semilla infectada, suelo infestado, estiércol de animales que hayan comido tubérculos con esta enfermedad.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Uso de variedad resistente",
+    "No usar guano de animales que hayan consumido tubérculos infectados",
+    "Selección de tubérculos"
+   ],
+   "nombres_locales": [
+    "llaga"
+   ],
+   "frecuencia_zona": "rara vez",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "pudricion_seca",
+   "nombre": "Pudrición seca",
+   "otros_nombres": [],
+   "agente": "Fusarium spp.",
+   "tipo": "Hongo",
+   "ficha": 6,
+   "fase": "Cerca a cosecha y en almacén.",
+   "transmision": "Semilla infectada, suelo infestado.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Evitar riegos pesados y anegamiento del campo",
+    "Selección de tubérculos",
+    "Desinfección de tubérculos con fungicidas",
+    "Almacenamiento adecuado"
+   ],
+   "nombres_locales": [
+    "seca seca"
+   ],
+   "frecuencia_zona": "rara vez",
+   "grupo_manejo": "Según el experto, ambas se tratan con el mismo producto.",
+   "grupo_con": [
+    "pudricion_blanda"
+   ]
+  },
+  {
+   "id": "carbon",
+   "nombre": "Carbón de la papa",
+   "otros_nombres": [],
+   "agente": "Thecaphora solani",
+   "tipo": "Hongo",
+   "ficha": 7,
+   "fase": "Desde la emergencia.",
+   "transmision": "Semilla infectada, suelo infestado.",
+   "manejo": [
+    "Uso de semilla sana",
+    "Uso de terrenos donde no se haya reportado la enfermedad",
+    "Evitar el monocultivo de papa",
+    "Rotaciones largas, por más de 7 años",
+    "Eliminar plantas hospedantes alternas"
+   ],
+   "nombres_locales": [
+    "cenicero (lectura dudosa)"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "marchitez_bacteriana",
+   "nombre": "Marchitez bacteriana",
+   "otros_nombres": [],
+   "agente": "Ralstonia solanacearum",
+   "tipo": "Bacteria",
+   "ficha": 8,
+   "fase": "Desde emergencia hasta formación de tubérculos.",
+   "transmision": "Semilla infectada, suelo infestado y agua de riego.",
+   "manejo": [
+    "Elección de terreno donde no se ha reportado la enfermedad",
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Evitar riegos pesados y anegamiento del campo",
+    "Desinfección de herramientas",
+    "Selección de tubérculos sanos",
+    "Almacenamiento adecuado"
+   ],
+   "nombres_locales": [],
+   "frecuencia_zona": "nunca",
+   "grupo_manejo": null,
+   "grupo_con": [],
+   "nota_experto": "Según el experto consultado, no es propia de la zona."
+  },
+  {
+   "id": "pierna_negra",
+   "nombre": "Pierna negra",
+   "otros_nombres": [],
+   "agente": "Pectobacterium carotovorum subsp. carotovorum y P. atrosepticum",
+   "tipo": "Bacteria",
+   "ficha": 9,
+   "fase": "Desde emergencia hasta formación de tubérculos.",
+   "transmision": "Semilla infectada, suelo infestado y agua de riego.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Evitar riegos pesados y anegamiento del campo",
+    "Desinfección de herramientas con lejía al 3%",
+    "Selección de tubérculos",
+    "Almacenamiento adecuado"
+   ],
+   "nombres_locales": [
+    "chupadera"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "pudricion_blanda",
+   "nombre": "Pudrición blanda",
+   "otros_nombres": [],
+   "agente": "Pectobacterium carotovorum subsp. carotovorum y P. atrosepticum",
+   "tipo": "Bacteria",
+   "ficha": 9,
+   "fase": "Formación de tubérculos, cosecha y almacenamiento.",
+   "transmision": "Semilla infectada, suelo infestado y agua de riego.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Rotación de cultivos",
+    "Uso de semilla sana",
+    "Evitar riegos pesados y anegamiento del campo",
+    "Desinfección de herramientas con lejía al 3%",
+    "Selección de tubérculos",
+    "Almacenamiento adecuado"
+   ],
+   "nombres_locales": [
+    "chupadera"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": "Según el experto, ambas se tratan con el mismo producto.",
+   "grupo_con": [
+    "pudricion_seca"
+   ]
+  },
+  {
+   "id": "virosis",
+   "nombre": "Virosis",
+   "otros_nombres": [],
+   "agente": "APLV, APMV, PVY, PVX, PLRV, PYVV, PVS",
+   "tipo": "Virus",
+   "ficha": 10,
+   "fase": "Desde emergencia hasta completar el desarrollo vegetativo, e incluso por contacto entre tubérculos en el almacén.",
+   "transmision": "Semilla infectada, áfidos, cigarritas, contacto entre plantas.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Uso de semilla sana",
+    "Selección positiva (plantas sanas para semilla)",
+    "Selección negativa (eliminación de plantas enfermas)",
+    "Uso de insecticidas para controlar insectos transmisores de virus",
+    "Uso de variedad resistente",
+    "Trampas amarillas o franjas móviles",
+    "Selección de tubérculos",
+    "Almacenamiento a luz difusa"
+   ],
+   "nombres_locales": [
+    "amarillamiento"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "nematodo_quiste",
+   "nombre": "Nematodo del quiste",
+   "otros_nombres": [],
+   "agente": "Globodera pallida",
+   "tipo": "Nematodo",
+   "ficha": 11,
+   "fase": "Desde emergencia hasta completar el desarrollo vegetativo.",
+   "transmision": "Semilla infectada o suelo adherido a tubérculos, maquinaria agrícola, suelo agrícola y sacos o envases para transportar tubérculos.",
+   "manejo": [
+    "Elección de terreno donde no se han reportado nematodos",
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Araduras profundas",
+    "Uso de semilla sana",
+    "Uso de variedad resistente",
+    "Uso de materia orgánica",
+    "Rotación de cultivos",
+    "Uso de nematicidas",
+    "Uso de plantas trampa",
+    "Cosecha oportuna"
+   ],
+   "nombres_locales": [
+    "chupadera"
+   ],
+   "frecuencia_zona": "rara vez",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "gorgojo_andes",
+   "nombre": "Gorgojo de los Andes",
+   "otros_nombres": [
+    "Gusano blanco de la papa"
+   ],
+   "agente": "Premnotrypes spp.",
+   "tipo": "Insecto",
+   "ficha": 12,
+   "fase": "Desde la emergencia hasta la cosecha.",
+   "transmision": "Migración desde campos infestados y rara vez en semilla.",
+   "manejo": [
+    "Eliminación de tubérculos infestados a la cosecha",
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Araduras profundas",
+    "Uso de semilla sana",
+    "Uso de variedad precoz",
+    "Siembras tempranas",
+    "Barreras de plástico y barreras vivas",
+    "Zanjas en el contorno del terreno",
+    "Rotación de cultivos, evitar monocultivo de papa",
+    "Uso adecuado de insecticidas",
+    "Plantas trampa y trampas de refugio",
+    "Aporques altos",
+    "Colección de gorgojos adultos",
+    "Cosecha oportuna",
+    "Uso de mantas en la cosecha",
+    "Selección de tubérculos",
+    "Control biológico"
+   ],
+   "nombres_locales": [
+    "gusanos",
+    "gusano blanco"
+   ],
+   "frecuencia_zona": "rara vez",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "polilla",
+   "nombre": "Polilla de la papa",
+   "otros_nombres": [],
+   "agente": "Phthorimaea operculella, Symmetrischema tangolias y Tecia solanivora",
+   "tipo": "Insecto",
+   "ficha": 13,
+   "fase": "Desde la semilla y el desarrollo vegetativo hasta la cosecha, inclusive en almacén.",
+   "transmision": "A través de semilla infestada.",
+   "manejo": [
+    "Eliminación de rastrojos del cultivo anterior y malezas",
+    "Araduras profundas",
+    "Uso de semilla sana",
+    "Profundidad adecuada de sembrado (no superficial)",
+    "Aporques altos y oportunos",
+    "Uso de insecticidas",
+    "Trampas con feromonas",
+    "Cosecha oportuna y selección de tubérculos",
+    "Uso de plantas repelentes",
+    "Baculovirus y talco Bt (si existen en el mercado local)",
+    "Almacenamiento a luz difusa"
+   ],
+   "nombres_locales": [
+    "mariposa"
+   ],
+   "frecuencia_zona": "siempre",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "trips",
+   "nombre": "Trips",
+   "otros_nombres": [],
+   "agente": "Frankliniella spp.",
+   "tipo": "Insecto",
+   "ficha": 14,
+   "fase": "Desarrollo vegetativo.",
+   "transmision": "Provienen de campos de papa aledaños infestados. Pueden transmitir el virus TSWV (Tomato Spotted Wilt Virus).",
+   "manejo": [
+    "Uso de semilla libre de virus",
+    "Eliminación de rastrojos, plantas voluntarias y malezas",
+    "Eliminación de plantas con síntomas de virus",
+    "Época de siembra que no coincida con la de mayor cantidad de trips",
+    "Uso adecuado de insecticidas"
+   ],
+   "nombres_locales": [
+    "piojos"
+   ],
+   "frecuencia_zona": "rara vez",
+   "grupo_manejo": null,
+   "grupo_con": []
+  },
+  {
+   "id": "pulguilla",
+   "nombre": "Pulguilla",
+   "otros_nombres": [
+    "Piqui piqui",
+    "Mosca saltona"
+   ],
+   "agente": "Epitrix spp.",
+   "tipo": "Insecto",
+   "ficha": 15,
+   "fase": "Desarrollo vegetativo.",
+   "transmision": "Provienen de campos de papa aledaños infestados y del mismo campo con infestación previa.",
+   "manejo": [
+    "Rotación de cultivos",
+    "Adecuada fertilización de las plantas, especialmente nitrogenada",
+    "Adecuado riego",
+    "Uso de trampas amarillas",
+    "Uso adecuado de insecticidas"
+   ],
+   "nombres_locales": [
+    "pulgas"
+   ],
+   "frecuencia_zona": "a veces",
+   "grupo_manejo": null,
+   "grupo_con": []
+  }
+ ]
+}
