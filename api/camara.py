@@ -50,7 +50,10 @@ def _cargar():
     global _sesion, _meta
     if _sesion is None:
         import onnxruntime as ort
-        _sesion = ort.InferenceSession(str(RUTA_MODELO), providers=["CPUExecutionProvider"])
+        opciones = ort.SessionOptions()
+        opciones.enable_cpu_mem_arena = False      # evita que onnxruntime se quede con memoria de más
+        opciones.enable_mem_pattern = False
+        _sesion = ort.InferenceSession(str(RUTA_MODELO), opciones, providers=["CPUExecutionProvider"])
         _meta = json.loads(RUTA_META.read_text(encoding="utf-8"))
     return _sesion, _meta
 
@@ -110,7 +113,11 @@ def analizar(contenido: bytes, con_mapa: bool = True) -> dict:
                 x0, x1 = max(0, cx - VENTANA // 2), min(224, cx + VENTANA // 2)
                 tapada[y0:y1, x0:x1, :] = 0.0          # gris medio en la escala [-1, 1]
                 lotes.append(tapada)
-        prob_tapadas = sesion.run(["probabilidades"], {"imagen": np.stack(lotes)})[0][:, k]
+        # En trozos de 7 para no disparar la memoria (49 de golpe pasa de 500 MB).
+        prob_tapadas = np.concatenate([
+            sesion.run(["probabilidades"], {"imagen": np.stack(lotes[i:i + 7])})[0][:, k]
+            for i in range(0, len(lotes), 7)
+        ])
         caida = np.clip(confianza - prob_tapadas, 0, None).reshape(GRILLA, GRILLA)
         mapa = (caida / caida.max()).round(3).tolist() if caida.max() > 1e-6 else caida.round(3).tolist()
 
